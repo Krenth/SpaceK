@@ -15,7 +15,7 @@ Future plans include retrofitting for ballistic flight with aggressive mid-air m
 ### Coordinate Rover
 Coordinate Rover is a not-so-simple solution to a very simple problem. You want the coordinates of a place, but you don't want to FLY all the way there and LAND BY HAND. What do you do? You just hop on Coordinate Rover, DRIVE there, and get the coordinates. Pretty simple, on second thought...
 
-
+![Coordinate Rover, out and about.](https://github.com/Krenth/SpaceK/blob/master/media/Coordinate%20Rover.png)
 
 ## Currently Implemented
 
