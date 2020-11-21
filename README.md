@@ -13,7 +13,7 @@ TestBed Nano is the first testing platform designed for the sole purpose of auto
 Order of parts, top to bottom:
 - [Probodyne Stayputnik](https://wiki.kerbalspaceprogram.com/wiki/Probodobodyne_Stayputnik) command computer
 - [Small Inline Reaction Wheel](https://wiki.kerbalspaceprogram.com/wiki/Small_Inline_Reaction_Wheel) (#1)
-- Procedural [Fuel Tank](https://wiki.kerbalspaceprogram.com/wiki/Fuel_tank) (0.625m Diameter, 2.5m height), holding Liquid Fuel and Oxidizer
+- Procedural [Fuel Tank](https://wiki.kerbalspaceprogram.com/wiki/Fuel_tank) (0.625m diameter, 2.5m height), holding Liquid Fuel and Oxidizer
 - 4x [Radioisotope Thermoelectric Generators](https://wiki.kerbalspaceprogram.com/wiki/PB-NUK_Radioisotope_Thermoelectric_Generator), as power supply
 - 4x [LT-05 Micro Landing Struts](https://wiki.kerbalspaceprogram.com/wiki/LT-05_Micro_Landing_Strut)
 - [Small Inline Reaction Wheel](https://wiki.kerbalspaceprogram.com/wiki/Small_Inline_Reaction_Wheel) (#2)
