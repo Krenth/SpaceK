@@ -5,7 +5,9 @@ Utilizing [kRPC](https://github.com/krpc/krpc) to pass commands in-game as well 
 
 ## Vehicles
 ### TestBed Nano (Mk.I)
-TestBed Nano is the first testing platform designed for the sole purpose of autopilot testing. It is not capable of exiting [Kerbin](https://wiki.kerbalspaceprogram.com/wiki/Kerbin)'s atmosphere, and is most definitely not capable of orbit. Take-off, hover, land. That simple
+TestBed Nano is the first testing platform designed for the sole purpose of autopilot testing. It is not capable of exiting [Kerbin](https://wiki.kerbalspaceprogram.com/wiki/Kerbin)'s atmosphere, and is most definitely not capable of orbit. Take-off, hover, land. That simple.
+
+![TestBed Nano Mk.I, sitting on the launch platform.](https://github.com/Krenth/SpaceK/blob/master/media/TestBed%20Nano%20MkI.png)
 
 Future plans include retrofitting for ballistic flight with aggressive mid-air manuevering capabilities through airbrakes and grid-fins.
 
