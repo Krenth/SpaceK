@@ -10,6 +10,15 @@ TestBed Nano is the first testing platform designed for the sole purpose of auto
 
 ![TestBed Nano Mk.I, sitting on the launch platform.](https://github.com/Krenth/SpaceK/blob/master/media/TestBed%20Nano%20MkI.png)
 
+Order of parts, top to bottom:
+- [Probodyne Stayputnik](https://wiki.kerbalspaceprogram.com/wiki/Probodobodyne_Stayputnik) command computer
+- [Small Inline Reaction Wheel](https://wiki.kerbalspaceprogram.com/wiki/Small_Inline_Reaction_Wheel) (#1)
+- Procedural [Fuel Tank](https://wiki.kerbalspaceprogram.com/wiki/Fuel_tank) (0.625m Diameter, 2.5m height), holding Liquid Fuel and Oxidizer
+- 4x [Radioisotope Thermoelectric Generators](https://wiki.kerbalspaceprogram.com/wiki/PB-NUK_Radioisotope_Thermoelectric_Generator), as power supply
+- 4x [LT-05 Micro Landing Struts](https://wiki.kerbalspaceprogram.com/wiki/LT-05_Micro_Landing_Strut)
+- [Small Inline Reaction Wheel](https://wiki.kerbalspaceprogram.com/wiki/Small_Inline_Reaction_Wheel) (#2)
+- [48-7S "Spark" Liquid Fuel Engine](https://wiki.kerbalspaceprogram.com/wiki/48-7S_%22Spark%22_Liquid_Fuel_Engine), providing the lift.
+
 Future plans include retrofitting for ballistic flight with aggressive mid-air manuevering capabilities through airbrakes and grid-fins.
 
 ### Coordinate Rover
