@@ -23,7 +23,7 @@ Coordinate Rover is a not-so-simple solution to a very simple problem. You want 
 TestBed_Nano_Hover is a coordinate-tracking hovering autopilot for TestBed, that attains and maintains a desired altitude to hover over to a desired coordinate on [Kerbin](https://wiki.kerbalspaceprogram.com/wiki/Kerbin). Once it reaches reserve fuel (set to 25% of max fuel), it executes a constant speed descent to land and stabilize on ground.
 
 ### Coordinates
-A simple coordinate query script, for use with any vehicle, to obtain the latitude and longitude of the current location in degrees decimal format. Mainly used for saving points of interests for use with otuehr autopilots as navigation waypoints.
+A simple coordinate query script, for use with any vehicle, to obtain the latitude and longitude of the current location in degrees decimal format. Mainly used for saving points of interests for use with other autopilots as navigation waypoints.
 
 ### Connect
 A simple connection script to test whether the kRPC framework is set up correctly and playing nicely. It just connects to the kRPC host, queries kRPC version, and prints it out.
