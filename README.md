@@ -33,7 +33,7 @@ TestBed_Nano_Hover is a coordinate-tracking hovering autopilot for TestBed, that
 
 Demo: https://youtu.be/RmJjLfSve1k
 
-[![TestBed Nano Hover Demo](http://img.youtube.com/vi/RmJjLfSve1k/0.jpg)](http://www.youtube.com/watch?v=RmJjLfSve1k "Hover Demo")
+[![Hover Demonstration](http://img.youtube.com/vi/j1SRy3dtoiw/0.jpg)](http://www.youtube.com/watch?v=j1SRy3dtoiw "Hover Demonstration")
 
 ### Coordinates
 A simple coordinate query script, for use with any vehicle, to obtain the latitude and longitude of the current location in degrees decimal format. Mainly used for saving points of interests for use with other autopilots as navigation waypoints.
