@@ -1,2 +1,4 @@
 *.json
 *.app
+*.docx
+src/orbital_mechanics.hpp
