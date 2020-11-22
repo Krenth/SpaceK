@@ -10,6 +10,15 @@ TestBed Nano is the first testing platform designed for the sole purpose of auto
 
 ![TestBed Nano Mk.I, sitting on the launch platform.](https://github.com/Krenth/SpaceK/blob/master/media/TestBed%20Nano%20MkI.png)
 
+Order of parts, top to bottom:
+- [Probodyne Stayputnik](https://wiki.kerbalspaceprogram.com/wiki/Probodobodyne_Stayputnik) command computer
+- [Small Inline Reaction Wheel](https://wiki.kerbalspaceprogram.com/wiki/Small_Inline_Reaction_Wheel) (#1)
+- Procedural [Fuel Tank](https://wiki.kerbalspaceprogram.com/wiki/Fuel_tank) (0.625m diameter, 2.5m height), holding Liquid Fuel and Oxidizer
+- 4x [Radioisotope Thermoelectric Generators](https://wiki.kerbalspaceprogram.com/wiki/PB-NUK_Radioisotope_Thermoelectric_Generator), as power supply
+- 4x [LT-05 Micro Landing Struts](https://wiki.kerbalspaceprogram.com/wiki/LT-05_Micro_Landing_Strut)
+- [Small Inline Reaction Wheel](https://wiki.kerbalspaceprogram.com/wiki/Small_Inline_Reaction_Wheel) (#2)
+- [48-7S "Spark" Liquid Fuel Engine](https://wiki.kerbalspaceprogram.com/wiki/48-7S_%22Spark%22_Liquid_Fuel_Engine), providing the lift.
+
 Future plans include retrofitting for ballistic flight with aggressive mid-air manuevering capabilities through airbrakes and grid-fins.
 
 ### Coordinate Rover
@@ -22,8 +31,12 @@ Coordinate Rover is a not-so-simple solution to a very simple problem. You want 
 ### TestBed_Nano_Hover
 TestBed_Nano_Hover is a coordinate-tracking hovering autopilot for TestBed, that attains and maintains a desired altitude to hover over to a desired coordinate on [Kerbin](https://wiki.kerbalspaceprogram.com/wiki/Kerbin). Once it reaches reserve fuel (set to 25% of max fuel), it executes a constant speed descent to land and stabilize on ground.
 
+Demo: http://www.youtube.com/watch?v=RmJjLfSve1k
+
+[![TestBed Nano Hover Demo](http://img.youtube.com/vi/RmJjLfSve1k/0.jpg)](http://www.youtube.com/watch?v=RmJjLfSve1k "Hover Demo")
+
 ### Coordinates
-A simple coordinate query script, for use with any vehicle, to obtain the latitude and longitude of the current location in degrees decimal format. Mainly used for saving points of interests for use with otuehr autopilots as navigation waypoints.
+A simple coordinate query script, for use with any vehicle, to obtain the latitude and longitude of the current location in degrees decimal format. Mainly used for saving points of interests for use with other autopilots as navigation waypoints.
 
 ### Connect
 A simple connection script to test whether the kRPC framework is set up correctly and playing nicely. It just connects to the kRPC host, queries kRPC version, and prints it out.
