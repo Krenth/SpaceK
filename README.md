@@ -31,7 +31,7 @@ Coordinate Rover is a not-so-simple solution to a very simple problem. You want 
 ### TestBed_Nano_Hover
 TestBed_Nano_Hover is a coordinate-tracking hovering autopilot for TestBed, that attains and maintains a desired altitude to hover over to a desired coordinate on [Kerbin](https://wiki.kerbalspaceprogram.com/wiki/Kerbin). Once it reaches reserve fuel (set to 25% of max fuel), it executes a constant speed descent to land and stabilize on ground.
 
-Demo: https://youtu.be/RmJjLfSve1k
+Demo: https://youtu.be/j1SRy3dtoiw
 
 [![Hover Demonstration](http://img.youtube.com/vi/j1SRy3dtoiw/0.jpg)](http://www.youtube.com/watch?v=j1SRy3dtoiw "Hover Demonstration")
 
