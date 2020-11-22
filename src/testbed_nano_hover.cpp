@@ -17,11 +17,11 @@ int main()
     auto ap = vessel.auto_pilot();
     auto local_surf_frame = krpc::services::SpaceCenter::ReferenceFrame::create_hybrid(
         conn, vessel.orbit().body().reference_frame(), vessel.surface_reference_frame());
-    float target_altitude = 100;
 
     // Set up streams for telemetry
     auto ut = space_center.ut_stream();
-    auto altitude = vessel.flight().surface_altitude_stream();
+    auto agl = vessel.flight().surface_altitude_stream();
+    auto msl = vessel.flight().mean_altitude_stream();
     auto vz = vessel.flight(local_surf_frame).vertical_speed_stream();
     auto vh = vessel.flight(local_surf_frame).horizontal_speed_stream();
     auto vtuple = vessel.flight(local_surf_frame).velocity_stream();
@@ -41,14 +41,18 @@ int main()
     float target_vh;
     float vz_error;
     float thrust;
+    float target_msl = 200;
+    float target_agl = 20;
+    float target_altitude;
+    float current_altitude;
     float target_pitch = 90;
     float target_heading = 0;
     float target_roll = 0;
     std::tuple<double, double, double> vcart;
     // float lat_init = lat();
     // float lon_init = lon();
-    float lat_init = 0.10057;
-    float lon_init = -74.5685;
+    float lat_init = -0.0967313;
+    float lon_init = -74.6184;
     float lat_error, lon_error;
     float target_vlat, target_vlon;
     float vlat_error, vlon_error;
@@ -77,12 +81,25 @@ int main()
     std::clock_t start;
     start = std::clock();
     bool stopSet = false;
+    bool arrived = false;
+    
     while (fuel() > 0.01 * max_fuel)
     {
-        twr = thrust_avail() / (mass() * g);
-        if (fuel() > 0.25 * max_fuel)
+        if (agl() < target_agl && msl() >= target_msl - 3)
         {
-            alt_error = altitude() - target_altitude;
+            target_altitude = target_agl;
+            current_altitude = agl();
+        }
+        else
+        {
+            target_altitude = target_msl;
+            current_altitude = msl();
+        }
+
+        twr = thrust_avail() / (mass() * g);
+        if (fuel() > 0.25 * max_fuel && !arrived)
+        {
+            alt_error = current_altitude - target_altitude;
             target_vz = -0.5 * alt_error;
             if (target_vz > 10)
                 target_vz = 10;
@@ -93,6 +110,10 @@ int main()
         {
             vessel.control().set_throttle(0);
             break;
+        }
+        else if (arrived)
+        {
+            target_vz = -3;
         }
         else
         {
@@ -117,6 +138,9 @@ int main()
 
         lat_error = lat() - lat_init;
         lon_error = lon() - lon_init;
+
+        if (sqrt(pow(lat_error, 2) + pow(lon_error, 2)) < 0.0004 && sqrt(pow(std::get<1>(vcart), 2) + pow(std::get<2>(vcart), 2)) < 0.2)
+            arrived = true;
 
         target_vlat = -3600 * lat_error * 0.2;
         target_vlon = -3600 * lon_error * 0.2;
@@ -163,6 +187,8 @@ int main()
         // ap.set_target_roll(target_roll);
 
         std::cout << "Report:" << std::endl;
+        std::cout << "lat_error: " << lat_error << ", ";
+        std::cout << "lon_error: " << lon_error << ", ";
         std::cout << "vlat: " << std::get<1>(vcart) << ", ";
         std::cout << "target_vlat: " << target_vlat << ", ";
         std::cout << "vlat_error: " << vlat_error << ", ";
