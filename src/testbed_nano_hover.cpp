@@ -97,6 +97,7 @@ int main()
     float current_vz = vz();
     std::tuple<double, double, double> vcart = vtuple();
     std::tuple<double, double, double> target_dir;
+    auto alt_type = "MSL";
     float current_fuel = fuel();
 
     while (current_fuel > 0.01 * max_fuel)
@@ -105,11 +106,13 @@ int main()
         {
             target_altitude = target_agl;
             current_altitude = current_agl;
+            alt_type = "AGL";
         }
         else
         {
             target_altitude = target_msl;
             current_altitude = current_msl;
+            alt_type = "MSL";
         }
 
         twr = current_thrust_avail / (current_mass * g);
@@ -194,15 +197,18 @@ int main()
         if (consoleCntr < 20)
         {
             std::cout << "Report:" << std::endl;
-            std::cout << "lat_error: " << lat_error << ", ";
-            std::cout << "lon_error: " << lon_error << ", ";
-            std::cout << "vlat: " << std::get<1>(vcart) << ", ";
-            std::cout << "target_vlat: " << target_vlat << ", ";
-            std::cout << "vlat_error: " << vlat_error << ", ";
-            std::cout << "vlon: " << std::get<2>(vcart) << ", ";
-            std::cout << "target_vlon: " << target_vlon << ", ";
-            std::cout << "vlon_error: " << vlon_error << ", ";
-            std::cout << "Fuel Ratio: " << fuel() / max_fuel << std::endl
+            std::cout << "Target Altitude: " << target_altitude << " m MSL, ";
+            std::cout << "Altitude Error: " << alt_error << " m" << std::endl;  
+
+            std::cout << "Latitude Error: " << lat_error << ", ";
+            std::cout << "Longitude Error: " << lon_error << std::endl;
+
+            std::cout << "Target V_latitude: " << target_vlat << " m/s, ";
+            std::cout << "V_latitude Error: " << vlat_error << " m/s, ";
+            std::cout << "Target V_longitude: " << target_vlon << " m/s, ";
+            std::cout << "V_longitude Error: " << vlon_error << std::endl;
+
+            std::cout << "Fuel Percent Remaining: " << fuel() / max_fuel * 100 << "%" << std::endl
                       << std::endl;
             consoleCntr = 0;
         }
