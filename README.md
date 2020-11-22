@@ -1,3 +1,5 @@
+![SpaceK](https://github.com/Krenth/SpaceK/blob/master/media/SpaceK.png)
+
 # SpaceK: A Kerbal Space Program Adaptation of SpaceX Feats and Accomplishments
 The name says it all: SpaceX in Kerbal Space Program. The end goal of this repo is to accomplish a fully automated launch and retrieval of a reusable booster, just like the SpaceX Falcon.
 
