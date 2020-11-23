@@ -2,3 +2,4 @@
 *.app
 *.docx
 src/orbital_mechanics.hpp
+src/MechJeb.hpp

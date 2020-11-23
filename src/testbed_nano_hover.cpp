@@ -5,6 +5,7 @@
 #include <krpc.hpp>
 #include <krpc/services/space_center.hpp>
 #include <boost/geometry.hpp>
+#include "kGeoMath.hpp"
 
 #define PI 3.14159265
 #define HOST_IP "192.168.1.78"
@@ -188,13 +189,13 @@ int main()
         if (target_roll > 180)
             target_roll -= 360;
 
-        bg::model::point<long double, 2, bg::cs::spherical<bg::degree>> dir_spherical(90 - target_heading, 90 - target_pitch);
-        bg::model::point<long double, 3, bg::cs::cartesian> dir_cartesian;
-        bg::transform(dir_spherical, dir_cartesian);
-        target_dir = std::make_tuple(bg::get<2>(dir_cartesian), bg::get<1>(dir_cartesian), bg::get<0>(dir_cartesian));
+        // bg::model::point<long double, 2, bg::cs::spherical<bg::degree>> dir_spherical(90 - target_heading, 90 - target_pitch);
+        // bg::model::point<long double, 3, bg::cs::cartesian> dir_cartesian;
+        // bg::transform(dir_spherical, dir_cartesian);
+        // target_dir = std::make_tuple(bg::get<2>(dir_cartesian), bg::get<1>(dir_cartesian), bg::get<0>(dir_cartesian));
+        target_dir = attitudeToDirection(target_pitch,target_heading);
 
         vessel.control().set_throttle(thrust);
-        // ap.target_pitch_and_heading(target_pitch, target_heading);
         ap.set_target_direction(target_dir);
         ap.set_target_roll(target_roll);
 
