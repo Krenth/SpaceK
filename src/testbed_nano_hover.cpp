@@ -154,8 +154,8 @@ int main()
         if (sqrt(pow(lat_error, 2) + pow(lon_error, 2)) < 0.0004 && sqrt(pow(std::get<1>(vcart), 2) + pow(std::get<2>(vcart), 2)) < 0.2)
             arrived = true;
 
-        target_vlat = -3600 * lat_error * 0.2;
-        target_vlon = -3600 * lon_error * 0.2;
+        target_vlat = (-3600 * 0.2 * lat_error);
+        target_vlon = (-3600 * 0.2 * lon_error);
         target_vh = sqrt(pow(target_vlat, 2) + pow(target_vlon, 2));
 
         if (target_vh > max_vh)
@@ -171,8 +171,8 @@ int main()
         target_heading = atan2(vlon_error, vlat_error) / PI * 180 + 180;
         target_roll = target_heading;
 
-        if (target_pitch < 75)
-            target_pitch = 75;
+        if (target_pitch < 60)
+            target_pitch = 60;
         else if (target_pitch > 90)
         {
             target_pitch = 180 - target_pitch;
@@ -198,7 +198,7 @@ int main()
         ap.set_target_direction(target_dir);
         ap.set_target_roll(target_roll);
 
-        if (consoleCntr < 20)
+        if (consoleCntr = 12)
         {
             std::cout << "Report:" << std::endl;
             std::cout << "Target Altitude: " << target_altitude << " m MSL, ";
