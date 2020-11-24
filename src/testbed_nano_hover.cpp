@@ -5,6 +5,7 @@
 #include <krpc.hpp>
 #include <krpc/services/space_center.hpp>
 #include <boost/geometry.hpp>
+#include <eigen3/Eigen/Dense>
 #include "kGeoMath.hpp"
 
 #define PI 3.14159265
@@ -47,8 +48,7 @@ int main()
     float target_msl = 200;
     float target_agl = 20;
     float target_altitude;
-    float target_pitch = 90;
-    float target_heading = 0;
+    Eigen::Vector2f target_att(90, 0);
     float target_roll = 0;
 
     float lat_init = -0.0968136;
@@ -168,23 +168,23 @@ int main()
         vlat_error = std::get<1>(vcart) - target_vlat;
         vlon_error = std::get<2>(vcart) - target_vlon;
 
-        target_pitch = 90 - 1 * sqrt(pow(vlat_error, 2) + pow(vlon_error, 2));
-        target_heading = atan2(vlon_error, vlat_error) / PI * 180 + 180;
-        target_roll = target_heading;
+        target_att(0) = 90 - 1 * sqrt(pow(vlat_error, 2) + pow(vlon_error, 2));
+        target_att(1) = atan2(vlon_error, vlat_error) / PI * 180 + 180;
+        target_roll = target_att(1);
 
-        if (target_pitch < 60)
-            target_pitch = 60;
-        else if (target_pitch > 90)
+        if (target_att(0) < 60)
+            target_att(0) = 60;
+        else if (target_att(0) > 90)
         {
-            target_pitch = 180 - target_pitch;
-            target_heading += 180;
+            target_att(0) = 180 - target_att(0);
+            target_att(1) += 180;
         }
-        if (target_heading < 0)
-            target_heading += 360;
-        else if (target_heading > 360)
-            target_heading -= 360;
+        if (target_att(1) < 0)
+            target_att(1) += 360;
+        else if (target_att(1) > 360)
+            target_att(1) -= 360;
 
-        target_roll = target_heading;
+        target_roll = target_att(1);
 
         if (target_roll > 180)
             target_roll -= 360;
@@ -193,7 +193,7 @@ int main()
         // bg::model::point<long double, 3, bg::cs::cartesian> dir_cartesian;
         // bg::transform(dir_spherical, dir_cartesian);
         // target_dir = std::make_tuple(bg::get<2>(dir_cartesian), bg::get<1>(dir_cartesian), bg::get<0>(dir_cartesian));
-        target_dir = attitudeToDirection(target_pitch,target_heading);
+        target_dir = attitudeToDirection(target_att);
 
         vessel.control().set_throttle(thrust);
         ap.set_target_direction(target_dir);

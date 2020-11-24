@@ -2,7 +2,7 @@
 #include <tuple>
 #include <eigen3/Eigen/Dense>
 
-std::tuple<double, double, double> attitudeToDirection(float pitch, float heading);
+std::tuple<double, double, double> attitudeToDirection(Eigen::Vector2f attitude);
 
 Eigen::Vector2f directionToAttitude(std::tuple<double, double, double> directionVector);
 

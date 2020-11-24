@@ -8,9 +8,9 @@
 
 namespace bg = boost::geometry;
 
-std::tuple<double, double, double> attitudeToDirection(float pitch, float heading)
+std::tuple<double, double, double> attitudeToDirection(Eigen::Vector2f attitude)
 {
-    bg::model::point<long double, 2, bg::cs::spherical<bg::degree>> dir_spherical(90 - heading, 90 - pitch);
+    bg::model::point<long double, 2, bg::cs::spherical<bg::degree>> dir_spherical(90 - attitude(1), 90 - attitude(0));
     bg::model::point<long double, 3, bg::cs::cartesian> dir_cartesian;
     bg::transform(dir_spherical, dir_cartesian);
     std::tuple<double, double, double> directionVector;
