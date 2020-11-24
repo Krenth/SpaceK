@@ -1,6 +1,7 @@
 #include <tuple>
 #include <cmath>
 #include <boost/geometry.hpp>
+#include <eigen3/Eigen/Dense>
 #include "kGeoMath.hpp"
 
 #define PI 3.14159265
@@ -19,21 +20,29 @@ std::tuple<double, double, double> attitudeToDirection(float pitch, float headin
     return directionVector;
 }
 
-std::tuple<float, float> directionToAttitude(std::tuple<double, double, double> directionVector)
+Eigen::Vector2f directionToAttitude(std::tuple<double, double, double> directionVector)
 {
     double x, y, z;
     float pitch, heading;
 
     std::tie(x, y, z) = directionVector;
 
-    std::tuple<float, float> attitude;
+    Eigen::Vector2f attitude;
 
     pitch = atan2(z, sqrt(y * y + z * z)) / PI * 180;
     heading = atan2(y, z) / PI * 180;
     if (heading < 0)
         heading += 360;
 
-    std::get<0>(attitude) = pitch;
-    std::get<1>(attitude) = heading;
+    attitude(0) = pitch;
+    attitude(1) = heading;
+
     return attitude;
+}
+
+
+Eigen::Vector2f haversine(float latitude, float longitude)
+{   
+    Eigen::Vector2f distVector;
+    return distVector;
 }
